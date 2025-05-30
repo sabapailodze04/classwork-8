@@ -30,23 +30,27 @@ console.log(myAge);
 
 let isGuestAge = prompt("Enter your age: ");
 let movieType = prompt("Enter Movie Type: (regular or 3D)");
-let timeChoise = prompt("Enter time of Day");
-
-// let price;
-// if (isGuestAge < 10) {
-//   price = 5;
-// } else if (isGuestAge >= 10 && isGuestAge < 65) {
-//   price = 15;
-// } else if (isGuestAge > 65) {
-//   price = 10;
-// }
-
-//! if (isGuestAge < 10) {
-// !  console.log("ბილეთის ფასია 5 ლარი");
-// !} else if (isGuestAge >= 10 && isGuestAge < 65) {
-// !  console.log("ბილეთის ფასია 15 ლარი");
-// !} else if (isGuestAge > 65) {
-//!   console.log("ბილეთის ფასია 10 ლარი");
-//! } else {
-//!   console.log("გთხოვთ შეიყვანოთ თქვენი ასაკი მხოლოდ რიცხვებით!");
-//! }
+let timeChoise = prompt("Enter time of Day: (evening or morning)");
+let disscount = prompt("have you disscount ticket?");
+let price = 0;
+if (isGuestAge < 10) {
+  price = price + 5;
+} else if (isGuestAge > 10 && isGuestAge < 65) {
+  price = price + 15;
+} else if (isGuestAge > 65) {
+  price = price + 10;
+} else console.log("ასაკი შეიყვანეთ მხოლოდ რიცხვებით!");
+if (movieType === "3D") {
+  price = price + 5;
+} else if (movieType === "regular") {
+  price = price;
+} else console.log("გთხოვთ აირჩიოთ 3D ან regular-ი");
+if (timeChoise === "evening") {
+  price = price + 5;
+} else if (timeChoise === "morning") {
+  price = price;
+} else console.log("აირჩიეთ მხოლოდ evening ან morning");
+if (disscount === "yes") {
+  price = price - 5;
+} else console.log("თქვენ ვერ გამოიყენებთ ფასდაკლებას");
+console.log(price);
